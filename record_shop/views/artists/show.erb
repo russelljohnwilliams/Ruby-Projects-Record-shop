@@ -1,1 +1,12 @@
-  some words from show
+
+You can edit or delete... take yr pick!
+<br>
+
+<hr>
+<%= @artist.name %>
+<br>
+<a href="/artists/<%= @artist.id %>/edit">Edit</a>
+
+<form action="/artists/<%= @artist.id %>/delete" method="post">
+  <input type="submit" value="delete">
+</form>

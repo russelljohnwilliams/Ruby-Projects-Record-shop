@@ -1,3 +1,4 @@
+
 require( 'pg' )
 require_relative( '../db/sql_runner' )
 
@@ -17,11 +18,30 @@ class Artist
     @id = album_data.first['id'].to_i
   end
 
+
   def self.all()
     sql = "SELECT * FROM artists"
     artists = run_sql( sql )
     result = artists.map { |artist| Artist.new( artist ) }
     return result
+  end
+
+  # def self.find( id )
+  #   artists = run_sql( "SELECT * FROM artists WHERE id=#{id}" ) 
+  #   result = Artist.new( artists.first )
+  #   return result
+  # end
+
+  def self.find(id)
+    sql = "SELECT * FROM artists WHERE id=#{id}"
+    delete = run_sql(sql)
+    result = Artist.new(delete.first)
+    return result 
+  end
+
+
+  def self.destroy( id )
+    run_sql( "DELETE FROM artists WHERE id=#{id}" )
   end
 
 
