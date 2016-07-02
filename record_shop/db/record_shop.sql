@@ -11,7 +11,6 @@ CREATE TABLE artists(
 CREATE TABLE albums(
   id serial4 PRIMARY KEY,
   title VARCHAR(255),
-  address VARCHAR(255),
   format VARCHAR(255),
   cat_number VARCHAR(255),
   distributor VARCHAR(255),
