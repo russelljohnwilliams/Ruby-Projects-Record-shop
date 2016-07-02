@@ -32,15 +32,23 @@ end
 #EDIT
 #------------------------<<<<<<<<<<<____________________self.find
 
+get '/artists/:id/edit' do
+  @artist = Artist.find( params[:id] )
+  erb( :'artists/edit' )
+end
 
 #UPDATE
 #------------------------<<<<<<<<<<<____________________self.update
 
+put '/artists/:id' do
+ @artist = Artist.update( params )
+ redirect to( "/artists/#{params[:id]}" )
+end
+
 #DELETE
 #------------------------<<<<<<<<<<<____________________self.delete
 
-
 post '/artists/:id/delete' do
-  Artist.destroy(params[:id])
+  Artist.delete(params[:id])
   redirect to('/artists')
 end

@@ -26,11 +26,6 @@ class Artist
     return result
   end
 
-  # def self.find( id )
-  #   artists = run_sql( "SELECT * FROM artists WHERE id=#{id}" ) 
-  #   result = Artist.new( artists.first )
-  #   return result
-  # end
 
   def self.find(id)
     sql = "SELECT * FROM artists WHERE id=#{id}"
@@ -39,8 +34,16 @@ class Artist
     return result 
   end
 
+  def self.update( options )
+    run_sql(  
+      "UPDATE artists SET 
+      name='#{options['name']}'
+      WHERE id=#{options['id']}"
+      ) 
+  end
 
-  def self.destroy( id )
+
+  def self.delete( id )
     run_sql( "DELETE FROM artists WHERE id=#{id}" )
   end
 
