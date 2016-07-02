@@ -17,4 +17,13 @@ class Artist
     @id = album_data.first['id'].to_i
   end
 
+  def self.all()
+    sql = "SELECT * FROM artists"
+    artists = run_sql( sql )
+    result = artists.map { |artist| Artist.new( artist ) }
+    return result
   end
+
+
+
+end
