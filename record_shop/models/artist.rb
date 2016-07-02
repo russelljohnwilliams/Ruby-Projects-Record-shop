@@ -12,4 +12,11 @@ class Artist
     @genre = options['genre']
   end
 
+  def save()
+    sql = "INSERT INTO artists (name, genre) VALUES ('#{@name}', '#{@genre}' ) RETURNING *"
+    artist = run(sql).first
+    result = Artist.new( artist )
+    return result
+  end
+
 end

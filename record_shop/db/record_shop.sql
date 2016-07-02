@@ -1,4 +1,4 @@
-DROP TABLE stock;
+DROP TABLE stocks;
 DROP TABLE albums;
 DROP TABLE artists;
 
@@ -18,7 +18,7 @@ CREATE TABLE albums(
   artist_id INT4 REFERENCES artists(id)
 );
 
-CREATE TABLE stock(
+CREATE TABLE stocks(
   id serial4 PRIMARY KEY,
   artist_id INT4 REFERENCES artists(id),
   album_id INT4 REFERENCES albums(id),
