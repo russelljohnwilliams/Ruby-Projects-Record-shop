@@ -1,2 +1,7 @@
-artists goes here
+<% @artist.each do |artist| %>
+  
+  <b>Name:</b><a href="/artists/<%= artist.id %>"><%= artist.name() %> </a><b>Genre:</b> <%= artist.genre %>
+  <hr>
+  <% end %>
+
 
