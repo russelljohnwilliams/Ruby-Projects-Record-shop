@@ -1,8 +1,6 @@
 require( 'pg' )
 require_relative( '../db/sql_runner' )
 
-
-
 class Artist
 
   attr_reader( :id, :name, :genre )
@@ -15,9 +13,8 @@ class Artist
 
   def save()
     sql = "INSERT INTO artists (name, genre) VALUES ('#{@name}', '#{@genre}' ) RETURNING *"
-    artist = run(sql).first
-    result = Artist.new( artist )
-    return result
+    album_data = run_sql(sql)
+    @id = album_data.first['id'].to_i
   end
 
-end
+  end

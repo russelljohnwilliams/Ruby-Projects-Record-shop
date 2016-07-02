@@ -18,7 +18,7 @@ class Stock
 
   def save()
     sql = "INSERT INTO stocks (artist_id, album_id, 
-quantity, cost_price, sale_price, model_stock) VALUES ('#{@artist_id}', '#{@album_id}', '#{@quantity}', '#{@cost_price}', '#{@sale_price}', '#{@model_stock}' ) RETURNING *"
+    quantity, cost_price, sale_price, model_stock) VALUES ('#{@artist_id}', '#{@album_id}', '#{@quantity}', '#{@cost_price}', '#{@sale_price}', '#{@model_stock}' ) RETURNING *"
     stock = run(sql).first
     return Stock.new(stock)
   end

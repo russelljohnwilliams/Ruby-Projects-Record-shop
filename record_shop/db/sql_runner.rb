@@ -1,9 +1,8 @@
-def run( sql )
-   begin
-     db = PG.connect({ dbname: 'record_shop', host: 'localhost' })
-     result = db.exec( sql )
-   ensure
-     db.close
-   end
-   return result
+require('pg')
+
+def run_sql(sql)
+  db = PG.connect( {dbname:'record_shop', host:'localhost'} )
+  result = db.exec( sql )
+  db.close()
+  return result
 end
