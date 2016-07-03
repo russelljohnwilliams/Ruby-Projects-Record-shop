@@ -33,16 +33,19 @@ end
 
 get '/albums/:id/edit' do
   @album = Album.find( params[:id] )
+  @artists = Artist.all()
   erb( :'albums/edit' )
 end
+
 
 #UPDATE
 #------------------------<<<<<<<<<<<____________________self.update
 
 put '/albums/:id' do
  @album = Album.update( params )
- redirect to( "/albums/#{params[:id]}" )
+ redirect to( "/albums" )
 end
+
 
 #DELETE
 #------------------------<<<<<<<<<<<____________________self.delete

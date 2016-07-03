@@ -1,5 +1,5 @@
-
-
+<div class="content" align="center">
+<h2>Albums</h2>
 <table id="t01" align="center">
   <tr>
     
@@ -10,9 +10,11 @@
     <% @album.each do |album| %>
   </tr>
   <tr>
-    <td><%= album.title() %> </a></td>
+    <td><a href="/albums/<%= album.id %>"><%= album.title() %></a></td>
     <td><%= album.format() %> </a></td>
     <td><%= album.cat_number() %> </a></td>
     <td><%= album.distributor() %> </a></td>
     <% end %>
   </tr>
+</table>
+</div>

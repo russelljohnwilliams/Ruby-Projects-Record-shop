@@ -10,13 +10,13 @@ th, td {
     padding: 5px;
 }
 table#t01 tr:nth-child(even) {
-    background-color: #eee;
+    background: linear-gradient(to bottom, #f0f5f5, #ffffff);
 }
 table#t01 tr:nth-child(odd) {
-   background-color:#fff;
+   background: linear-gradient(to bottom, #c2d6d6, #e0ebeb);
 }
 table#t01 th {
-    background-color: black;
+    background: linear-gradient(to bottom, #004d4d, #008080);
     color: white;
     text-align: center;
 

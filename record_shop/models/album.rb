@@ -8,9 +8,8 @@ class Album
 
   def initialize(options)
     @id = options['id'].to_i
-    @title = options['title']
-    @format = options['format']
-    @cat_number = options['cat_number']
+    @title = options['title'].capitalize
+    @cat_number = options['cat_number'].upcase
     @distributor = options['distributor']
     @artist_id = options['artist_id'].to_i
   end
@@ -28,13 +27,12 @@ class Album
     return artist
   end
 
-  def self.all(query = "")
-   query = query.to_s
+  
+  def self.all()
    sql = "SELECT * FROM albums"
-   sql = sql + " WHERE name LIKE '%#{query}%'" unless query.empty?
-   albums_data = run_sql( sql )
-   albums = albums_data.map {|album_data| Album.new( album_data )}
-   return albums
+   albums = run_sql( sql )
+   result = albums.map { |album| Album.new( album ) }
+   return result
  end
 
  def self.find(id)
@@ -45,7 +43,9 @@ class Album
 end
 
 def self.update( options )
-  run_sql("UPDATE albums SET title='#{options['title']}', format='#{options['format']}', cat_number='#{options['cat_number']}', distributor='#{options['artist_id']}' WHERE id=#{options['id']}") 
+  run_sql(
+    "UPDATE albums SET title='#{options['title']}', format='#{options['format']}', cat_number='#{options['cat_number']}', distributor='#{options['distributor']}' WHERE id=#{options['id']}"
+    ) 
 end
 
 def self.delete( id )

@@ -1,11 +1,18 @@
-You can edit or delete... take yr pick!
-<br>
+<div class="content" align="center">
+  <h2>Edit or Delete an Album</h2>
+  <br>
 
-<hr>
-<%= @album.title %>
-<br>
-<a href="/albums/<%= @album.id %>/edit">Edit</a>
+  <hr>
+  <h3><%= @album.title %></h3>
 
-<form action="/albums/<%= @album.id %>/delete" method="post">
-  <input type="submit" value="delete">
-</form>
+  <a href="/albums/<%= @album.id %>/edit">Edit</a>
+
+  <form action="/albums/<%= @album.id %>/edit" method="post">
+    <input type="submit" value="edit"></form>
+
+    <form action="/albums/<%= @album.id %>/delete" method="post">
+      <input type="submit" value="delete"></form>
+
+    </div>
+
+

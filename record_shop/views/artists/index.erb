@@ -1,3 +1,5 @@
+<div class="content" align="center">
+<h2>Artists</h2>
 <table id="t01" align="center">
   <tr>
     <th>Artist</th>
@@ -5,9 +7,10 @@
     <% @artist.each do |artist| %>
   </tr>
   <tr>
-    <td><%= artist.name() %> </a></td>
+    <td><a href="/artists/<%= artist.id %>"><%= artist.name() %></a> </a></td>
     <td><%= artist.genre() %> </a></td>
     
     <% end %>
   </tr>
 </table>
+</div>

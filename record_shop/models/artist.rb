@@ -1,4 +1,4 @@
-require( 'pg' )
+  require( 'pg' )
 require_relative( '../db/sql_runner' )
 require_relative('album')
 
@@ -8,8 +8,8 @@ class Artist
 
   def initialize( options )
     @id = options['id'].to_i
-    @name = options['name']
-    @genre = options['genre']
+    @name = options['name'].capitalize
+    @genre = options['genre'].capitalize
   end
 
   def save()
