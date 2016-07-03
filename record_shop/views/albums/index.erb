@@ -1,0 +1,18 @@
+
+
+<table id="t01" align="center">
+  <tr>
+    
+    <th>Album</th>
+    <th>Format</th>
+    <th>Catalogue Number</th>
+    <th>Distributor</th>
+    <% @album.each do |album| %>
+  </tr>
+  <tr>
+    <td><%= album.title() %> </a></td>
+    <td><%= album.format() %> </a></td>
+    <td><%= album.cat_number() %> </a></td>
+    <td><%= album.distributor() %> </a></td>
+    <% end %>
+  </tr>

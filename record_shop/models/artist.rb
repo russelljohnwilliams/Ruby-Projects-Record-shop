@@ -1,6 +1,6 @@
-
 require( 'pg' )
 require_relative( '../db/sql_runner' )
+require_relative('album')
 
 class Artist
 
@@ -18,6 +18,12 @@ class Artist
     @id = album_data.first['id'].to_i
   end
 
+  def albums()
+    sql = "SELECT * FROM albums WHERE artist_id = #{@id}"
+    albums_data = run_sql( sql )
+    albums = albums_data.map { |album_data| Album.new(album_data) }
+    return albums
+  end
 
   def self.all()
     sql = "SELECT * FROM artists"
@@ -37,7 +43,7 @@ class Artist
   def self.update( options )
     run_sql(  
       "UPDATE artists SET 
-      name='#{options['name']}'
+      name='#{options['name']}', genre='#{options['genre']}'
       WHERE id=#{options['id']}"
       ) 
   end

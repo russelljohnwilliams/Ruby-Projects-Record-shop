@@ -7,7 +7,7 @@ class TestBooking < MiniTest::Test
     options = {
       'title' => 'Surfa Rosa',
       'format' => 'LP',
-      'catalogue_number' => 'CAD803',
+      'cat_number' => 'CAD803',
       'distributor' => 'PIAS'
     }
 
@@ -17,6 +17,19 @@ class TestBooking < MiniTest::Test
   def test_title()
     assert_equal( 'Surfa Rosa', @album.title() )
   end
+
+  def test_format()
+    assert_equal( 'LP', @album.format() )
+  end
+
+  def test_catalogue_number()
+    assert_equal( 'CAD803', @album.cat_number() )
+  end
+
+  def test_distributor()
+    assert_equal( 'PIAS', @album.distributor() )
+  end
+  
   
   
 

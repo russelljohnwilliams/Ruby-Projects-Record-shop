@@ -15,9 +15,20 @@ class TestBooking < MiniTest::Test
   end
 
   def test_quantity()
-    assert_equal( '5', @stock.quantity() )
+    assert_equal( 5, @stock.quantity() )
   end
   
+  def test_cost_price()
+    assert_equal( 2.50, @stock.cost_price() )
+  end
+  
+  def test_sale_price()
+    assert_equal( 4.99, @stock.sale_price() )
+  end
+
+  def test_model_stock()
+    assert_equal( 3, @stock.model_stock() )
+  end
   
 
 end    

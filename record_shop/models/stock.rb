@@ -16,12 +16,12 @@ class Stock
     @model_stock = options['model_stock'].to_i
   end
 
-  def save()
-    sql = "INSERT INTO stocks (artist_id, album_id, 
-    quantity, cost_price, sale_price, model_stock) VALUES ('#{@artist_id}', '#{@album_id}', '#{@quantity}', '#{@cost_price}', '#{@sale_price}', '#{@model_stock}' ) RETURNING *"
-    stock = run(sql).first
-    return Stock.new(stock)
-  end
+  # def save()
+  #   sql = "INSERT INTO stocks (artist_id, album_id, 
+  #   quantity, cost_price, sale_price, model_stock) VALUES ('#{@artist_id}', '#{@album_id}', '#{@quantity}', '#{@cost_price}', '#{@sale_price}', '#{@model_stock}' ) RETURNING *"
+  #   stock = run(sql).first
+  #   return Stock.new(stock)
+  # end
 
 end
 

@@ -1,7 +1,13 @@
-<% @artist.each do |artist| %>
-  
-  <b>Name:</b><a href="/artists/<%= artist.id %>"><%= artist.name() %> </a><b>Genre:</b> <%= artist.genre %>
-  <hr>
-  <% end %>
-
-
+<table id="t01" align="center">
+  <tr>
+    <th>Artist</th>
+    <th>Genre</th>
+    <% @artist.each do |artist| %>
+  </tr>
+  <tr>
+    <td><%= artist.name() %> </a></td>
+    <td><%= artist.genre() %> </a></td>
+    
+    <% end %>
+  </tr>
+</table>

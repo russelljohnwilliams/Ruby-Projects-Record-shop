@@ -13,7 +13,7 @@ class TestBooking < MiniTest::Test
   end
 
   def test_name()
-    assert_equal( 'Roxy Music', @artist.title() )
+    assert_equal( 'Roxy Music', @artist.name() )
   end
   
   def test_genre()
