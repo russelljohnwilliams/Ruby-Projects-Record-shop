@@ -1,4 +1,3 @@
-
 #NEW
 
 get '/stock/new' do
@@ -18,7 +17,7 @@ end
 post '/stock' do
  @stock = Stock.new( params )
  @stock.save()
- redirect to('/stock')
+ redirect to('/stock/new')
 end
 
 #SHOW
@@ -52,3 +51,4 @@ post '/stock/:id/delete' do
   Stock.delete(params[:id])
   redirect to('/stock')
 end
+

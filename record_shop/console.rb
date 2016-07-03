@@ -13,8 +13,8 @@ album1 = Album.new({ 'title' => 'Surfa Rosa', 'format' => 'LP', 'cat_number' => 
   })
 album1.save();
 
-# stock1 = Stock.new({ 'artist_id' => artist1.id, 'album_id' => album1.id,'quantity' => 6, 'cost_price' => 2.5, 'sale_price' => 4.99, 'model_stock' => 3})
-# stock1.save();
+stock1 = Stock.new({ 'artist_id' => artist1.id, 'album_id' => album1.id,'quantity' => 6, 'cost_price' => 2, 'sale_price' => 4, 'model_stock' => 3})
+stock1.save();
 
 
   binding.pry

@@ -9,6 +9,7 @@ class Album
   def initialize(options)
     @id = options['id'].to_i
     @title = options['title'].capitalize
+    @format = options['format'].upcase
     @cat_number = options['cat_number'].upcase
     @distributor = options['distributor']
     @artist_id = options['artist_id'].to_i
@@ -22,12 +23,11 @@ class Album
 
   def artist()
     sql = "SELECT * FROM artists WHERE id = #{ @artist_id }"
-    artist_data = run_sql( sql )
-    artist = Artist.new( artist_data.first )
+    artists = run_sql( sql )
+    artist = Artist.new( artists.first )
     return artist
   end
 
-  
   def self.all()
    sql = "SELECT * FROM albums"
    albums = run_sql( sql )
@@ -52,7 +52,16 @@ def self.delete( id )
   run_sql( "DELETE FROM albums WHERE id=#{id}" )
 end
 
+# def self.map_items(sql)
+#   albums = run(sql)
+#   result = albums.map { |album| Artist.new( album ) }
+#   return result
+# end
 
+# def self.map_item(sql)
+#   result = Album.map_items(sql)
+#   return result.first
+# end
 
 end
 

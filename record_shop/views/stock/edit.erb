@@ -1,0 +1,27 @@
+
+<div class="content" align="center">
+
+  <h2>Edit stock</h2>
+
+  <form action="/stock/<%= @stock.id %>" method="post">
+    <input type="hidden" name="_method" value="put">
+    <label for="quantity">Quantity:</label><br>
+    <input type="number" name="quantity" value="<%= @stock.quantity %>"><br>
+
+    <label for="cost_price">Cost Price:</label><br>
+    <input type="number" name="cost_price" value="<%= @stock.cost_price %>"><br>
+
+    <label for="sale_price">Sale Price:</label><br>
+    <input type="number" name="sale_price" value="<%= @stock.sale_price %>"><br>
+
+    <label for="model_stock">Model Stock:</label><br>
+    <input type="number" name="model_stock" value="<%= @stock.model_stock %>"><br>
+
+
+
+    <input type='submit' value="Update Stock">
+  </form>
+
+</div>
+
+

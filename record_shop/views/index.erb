@@ -1,0 +1,11 @@
+ARTISTS / ALBUMS
+<hr width="50%">
+<% @artists.each do |artist| %>
+<%= artist.name %> - 
+<%= artist.genre %> - 
+<% artist.albums.each do |album| %>
+<%= album.title %>
+<hr width="30%">
+<% end %>
+<% end %>
+

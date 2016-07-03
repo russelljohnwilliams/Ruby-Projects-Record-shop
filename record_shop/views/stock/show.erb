@@ -1,0 +1,18 @@
+<div class="content" align="center">
+<h2>Edit or Delete Stock</h2><br>
+
+<hr><h3>
+Stock Id <%= @stock.id %>
+</h3>
+
+<a href="/stock/<%= @stock.id %>/edit">Edit</a>
+
+<form action="/stock/<%= @stock.id %>/edit" method="post">
+  <input type="submit" value="edit">
+  </form>
+
+<form action="/stock/<%= @stock.id %>/delete" method="post">
+  <input type="submit" value="delete">
+</form>
+
+</div>

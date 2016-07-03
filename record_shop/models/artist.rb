@@ -41,17 +41,30 @@ class Artist
   end
 
   def self.update( options )
-    run_sql(  
+    sql = (  
       "UPDATE artists SET 
       name='#{options['name']}', genre='#{options['genre']}'
       WHERE id=#{options['id']}"
       ) 
+    run_sql(sql)
   end
 
 
   def self.delete( id )
     run_sql( "DELETE FROM artists WHERE id=#{id}" )
   end
+
+
+  # def self.map_items(sql)
+  #   artists = run(sql)
+  #   result = artists.map { |artist| Artist.new( artist ) }
+  #   return result
+  # end
+
+  # def self.map_item(sql)
+  #   result = Artist.map_items(sql)
+  #   return result.first
+  # end
 
 
 
