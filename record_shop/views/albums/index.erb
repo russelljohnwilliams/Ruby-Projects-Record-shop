@@ -1,20 +1,25 @@
 <div class="content" align="center">
-<h2>Albums</h2>
-<table id="t01" align="center">
-  <tr>
-    
-    <th>Album</th>
-    <th>Format</th>
-    <th>Catalogue Number</th>
-    <th>Distributor</th>
-    <% @album.each do |album| %>
-  </tr>
-  <tr>
-    <td><a href="/albums/<%= album.id %>"><%= album.title() %></a></td>
-    <td><%= album.format() %> </a></td>
-    <td><%= album.cat_number() %> </a></td>
-    <td><%= album.distributor() %> </a></td>
-    <% end %>
-  </tr>
-</table>
+  <h2>Albums</h2>
+  <table id="t01" align="center">
+    <tr>
+      
+      <th>Artist</th>
+      <th>Album</th>
+      <th>Format</th>
+      <th>Catalogue Number</th>
+      <th>Distributor</th>
+      <th>Book In Stock</th>
+      <% @album.each do |album| %>
+    </tr>
+    <tr>
+      <%artist = album.artist() %>
+      <td><a href="/artists/<%= artist.id %>"><%= artist.name() %></a></td>
+      <td><a href="/albums/<%= album.id %>"><%= album.title() %></a></td>
+      <td><%= album.format() %> </td>
+      <td><%= album.cat_number() %> </td>
+      <td><%= album.distributor() %> </td>
+      <td><a href="/stock/new">stock</a></td>
+      <% end %>
+    </tr>
+  </table>
 </div>

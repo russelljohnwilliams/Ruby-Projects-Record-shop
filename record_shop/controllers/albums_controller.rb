@@ -1,35 +1,50 @@
-#NEW
+#NEW 
+#ALBUMS / NEW
+#ERB - albums/new
 
 get '/albums/new' do
   erb( :'albums/new' )
 end
 
-#INDEX
 
-#------------------------<<<<<<<<<<<____________________self.all
+#INDEX
+#ALBUMS / INDEX
+#ERB - albums/index
+#------------------------ self.all
+
 get '/albums' do
   @album = Album.all
   erb :'albums/index'
 end
 
-#CREATE
-#------------------------<<<<<<<<<<<____________________.save
+
+#CREATE 
+#/ALBUMS / INDEX
+#ERB - albums/
+#------------------------ self.save
+
 post '/albums' do
  @album = Album.new( params )
  @album.save()
  redirect to('/albums')
 end
 
+
 #SHOW
-#------------------------<<<<<<<<<<<____________________self.find
+#/ALBUMS / :ID
+#ERB - albums/id/edit
+#------------------------ self.find
 
 get '/albums/:id' do
   @album = Album.find( params[:id] )
   erb( :'albums/show' )
 end
 
+
 #EDIT
-#------------------------<<<<<<<<<<<____________________self.find
+#/ALBUMS / :ID / EDIT 
+#ERB - albums/edit
+#------------------------ self.find
 
 get '/albums/:id/edit' do
   @album = Album.find( params[:id] )
@@ -39,7 +54,9 @@ end
 
 
 #UPDATE
-#------------------------<<<<<<<<<<<____________________self.update
+#/ ALBUMS / INDEX
+#ERB - albums/
+#------------------------ self.update
 
 put '/albums/:id' do
  @album = Album.update( params )
@@ -48,9 +65,14 @@ end
 
 
 #DELETE
-#------------------------<<<<<<<<<<<____________________self.delete
+#/ ALBUMS / INDEX
+#ERB - albums/
+#------------------------ self.delete
 
 post '/albums/:id/delete' do
   Album.delete(params[:id])
   redirect to('/albums')
 end
+
+
+

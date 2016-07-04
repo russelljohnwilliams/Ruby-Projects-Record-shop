@@ -9,7 +9,7 @@ class Album
   def initialize(options)
     @id = options['id'].to_i
     @title = options['title'].capitalize
-    @format = options['format'].upcase
+    @foFormatrmat = options['format'].upcase
     @cat_number = options['cat_number'].upcase
     @distributor = options['distributor']
     @artist_id = options['artist_id'].to_i

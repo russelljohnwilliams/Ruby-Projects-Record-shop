@@ -7,7 +7,7 @@
 
   <a href="/albums/<%= @album.id %>/edit">Edit</a>
 
-  <form action="/albums/<%= @album.id %>/edit" method="post">
+  <form action="/albums/<%= @album.id %>/edit" method="get">
     <input type="submit" value="edit"></form>
 
     <form action="/albums/<%= @album.id %>/delete" method="post">

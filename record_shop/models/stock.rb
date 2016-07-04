@@ -1,5 +1,7 @@
 require('pg')
+require('pry-byebug')
 require_relative('../db/sql_runner')
+
 
 
 class Stock
@@ -11,12 +13,13 @@ class Stock
     @artist_id = options['artist_id'].to_i
     @album_id = options['album_id'].to_i
     @quantity = options['quantity'].to_i
-    @cost_price = options['cost_price'].to_i# must change to float somehow
-    @sale_price = options['sale_price'].to_i#must change to float somehow
+    @cost_price = options['cost_price']
+    @sale_price = options['sale_price']
     @model_stock = options['model_stock'].to_i
   end
 
   def save()
+
     sql = "INSERT INTO stocks (artist_id, album_id, 
     quantity, cost_price, sale_price, model_stock) VALUES ('#{@artist_id}', '#{@album_id}', '#{@quantity}', '#{@cost_price}', '#{@sale_price}', '#{@model_stock}' ) RETURNING *"
     result = run_sql(sql)
@@ -25,18 +28,24 @@ class Stock
 
   def artist()
     sql = "SELECT * FROM artists WHERE id = #{@artist_id}"
-    return Artist.map_item(sql)
+    artists = run_sql( sql )
+    artist = Artist.new( artists.first )
+    return artist
   end
 
   def album()
     sql = "SELECT * FROM albums WHERE id = #{@album_id}"
-    return Album.map_item(sql)
+    albums = run_sql( sql )
+    album = Album.new( albums.first )
+    return album
   end
 
 
   def self.all()
     sql = "SELECT * FROM stocks"
-    return Stock.map_items(sql)
+    product = run_sql( sql )
+    result = product.map { |stock| Stock.new( stock ) }
+    return result
   end
 
   def self.find(id)
