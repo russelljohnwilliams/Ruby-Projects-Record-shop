@@ -27,11 +27,11 @@ class Stock
 
   def stock_level()
     if  model_stock > quantity
-      result = "low"
+      result = "ORDER MORE!"
     elsif model_stock < quantity
-      result = "high"
+      result = "Doing alright"
     elsif model_stock == quantity
-      result = "Alright!"
+      result = "Keep an eye on it!"
     end
     return result 
   end
