@@ -36,6 +36,10 @@ class Stock
     return result 
   end
 
+  def mark_up()
+    result = sale_price - cost_price
+    return result
+  end
 
   def artist()
     sql = "SELECT * FROM artists WHERE id = #{@artist_id}"
@@ -94,3 +98,7 @@ end
 # "SELECT SUM(sale_price) FROM stocks;"
 
 # "SELECT * FROM artists INNER JOIN albums ON artist_id = artists.id ORDER BY genre;"
+
+# "SELECT SUM(sale_price) - SUM(cost_price) FROM stocks;"
+
+#"SELECT (sale_price) - (cost_price) FROM stocks;"
