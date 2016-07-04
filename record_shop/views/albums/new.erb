@@ -1,29 +1,20 @@
-<div class="content" align="center" id="white_text">
+<div class="content" align="center" >
 
   <h2>Create a New Album</h2>
 
   <form action="/albums" method="post">
 
-    <label for="title">Title:</label><br>
-    <input type="text" name="title">
-    <br>
+    <input type="text" name="title" placeholder="Title :"><br>
 
-    <label for="format">Format:</label><br>
-    <input type="text" name="format">
-    <br>
+    <input type="text" name="format" placeholder=" Format :"><br>
 
-    <label for="cat_number">Catalogue Number:</label><br>
-    <input type="text" name="cat_number">
-    <br>
+    <input type="text" name="cat_number" placeholder="Catalogue Number :"><br>
 
-    <label for="distributor">Distributor:</label><br>
-    <input type="text" name="distributor">
-    <br>
+    <input type="text" name="distributor" placeholder="Distributor :"><br>
 
-    <label for="artist_id">Artist id:</label><br>
-    <input type="number" name="artist_id">
-    <br>
-
-    <input type='submit' value="Add Album">
+    <input type="number" name="artist_id" placeholder="Artist id :"><br>
+    
+    <button type='submit' class="button" style="vertical-align:middle"><span>Add Album</span></button>
+    
   </form>
 </div>
