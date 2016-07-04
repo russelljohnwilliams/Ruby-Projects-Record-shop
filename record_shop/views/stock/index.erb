@@ -5,43 +5,50 @@
 
 <div class="content" align="center">
 <h2>Stock</h2>
-<table id="t01" align="center">
+<table id="t02" align="center">
   <tr>
     <th>Artist</th>
     <th>Artist ID</th>
+    <th>Genre</th>
     <th>Album</th>
+    <th>Album ID</th>
     <th>Format</th>
     <th>Cat No.</th>
     <th>Dist</th>
-    <th>Album ID</th>
     <th>Quant</th>
     <th>Cost Price</th>
     <th>Sale Price</th>
     <th>MS</th>
+    <th>Level</th>
+    <th>Update</th>
 
     <% @stock.each do |stock| %>
   </tr>
   <tr>
-    <%artist = stock.artist() %>
+    <% artist = stock.artist() %>
+    <% album = stock.album() %>
+    <% result = stock.stock_level() %>
     <td><%= artist.name() %></td>
-    <%album = stock.album() %>
     <td><%= album.artist_id %></td>
+    <td><%= artist.genre() %></td>
     <td><%= album.title() %></td>
+    <td><%= stock.album_id() %></td>
     <td><%= album.format() %></td>
     <td><%= album.cat_number() %></td>
     <td><%= album.distributor() %></td>
-    <td><%= stock.album_id() %></td>
     <td><%= stock.quantity() %></td>
     <td><%= stock.cost_price() %></td>
     <td><%= stock.sale_price() %></td>
     <td><%= stock.model_stock() %></td>
+    <td><%= result %></td>
+
+    <td><a href="/stock/<%= stock.id %>/edit">Edit</td>
+    
     <% end %>
   </tr>
 </table>
 
-
 </div>
-
 
 
 

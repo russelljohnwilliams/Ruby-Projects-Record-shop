@@ -41,7 +41,7 @@ end
 
 put '/stock/:id' do
  @stock = Stock.update( params )
- redirect to( "/stock/#{params[:id]}" )
+ redirect to( "/stock" )
 end
 
 #DELETE
@@ -51,4 +51,5 @@ post '/stock/:id/delete' do
   Stock.delete(params[:id])
   redirect to('/stock')
 end
+
 

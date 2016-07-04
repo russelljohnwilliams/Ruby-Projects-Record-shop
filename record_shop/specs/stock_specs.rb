@@ -30,6 +30,10 @@ class TestBooking < MiniTest::Test
     assert_equal( 3, @stock.model_stock() )
   end
   
+  def test_stock_level
+    assert_equal("high", @stock.stock_level())
+  end
+  
 
 end    
 
