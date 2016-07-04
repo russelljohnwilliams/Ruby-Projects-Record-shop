@@ -35,7 +35,7 @@ stock1 = Stock.new({ 'artist_id' => artist1.id, 'album_id' => album1.id,'quantit
 stock1.save();
 
 stock2 = Stock.new({ 'artist_id' => artist3.id, 'album_id' => album2.id,'quantity' => '1', 'cost_price' => 2.50, 'sale_price' => 7.99, 'model_stock' => '1'})
-stock1.save();
+stock2.save();
 
 
   binding.pry

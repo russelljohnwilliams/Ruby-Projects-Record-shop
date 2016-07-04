@@ -3,19 +3,27 @@
 <head>
   <title>kababalanche</title>
   <link rel="stylesheet" type="text/css" href="/style.css">
-</head><header>
-<div class="content" align="center">
-<a href="/artists">Artists</a> - 
-<a href="/albums">Albums</a> - 
-<a href="/artists/new">New Artist</a> - 
-<a href="/albums/new">New Album</a> - 
-<a href="/stock">Stock</a>
-<hr>
-</header>
-<body>
+  <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+</head><header class="content">
+<div class="left" align="center" id="surfacenoise">
+SURFACE NOISE
+</div>
+<div class="right" align="right">
+<a href="/artists"><button class="button" style="vertical-align:middle"><span>Artists</span></button></a>
+<a href="/albums"><button class="button" style="vertical-align:middle"><span>Albums</span></button></a>
+<a href="/artists/new"><button class="button" style="vertical-align:middle"><span>New Artist</span></button></a>
+<a href="/albums/new"><button class="button" style="vertical-align:middle"><span>New Album</span></button></a>
+<a href="/stock"><button class="button" style="vertical-align:middle"><span>Stock</span></button></a>
 
+</div>
+</header>
+<div>
+<br><hr>
+</div>
+
+<body id="grad1">
 <br>
 <%= yield  %>
-</div>
+
 </body>
 </html>

@@ -22,7 +22,7 @@ CREATE TABLE stocks(
   artist_id INT4 REFERENCES artists(id),
   album_id INT4 REFERENCES albums(id),
   quantity INT4,
-  cost_price  NUMERIC(10,2),
-  sale_price NUMERIC(10,2),
+  cost_price DECIMAL(10,2),
+  sale_price DECIMAL(10,2),
   model_stock INT4
 );
