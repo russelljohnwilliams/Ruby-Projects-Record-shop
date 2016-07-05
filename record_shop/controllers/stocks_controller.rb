@@ -6,7 +6,6 @@ get '/stock' do
   erb ( :'stock/index' )
 end
 
-
 #NEW
 
 get '/stock/new' do

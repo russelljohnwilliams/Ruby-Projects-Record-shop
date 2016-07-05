@@ -5,14 +5,16 @@
 Stock Id <%= @stock.id %>
 </h3>
 
-<a href="/stock/<%= @stock.id %>/edit">Edit</a>
 
 <form action="/stock/<%= @stock.id %>/edit" method="post">
-  <input type="submit" value="edit">
+
+<button type='submit' class="button" style="vertical-align:middle"><span>Edit</span></button>
+ 
   </form>
 
 <form action="/stock/<%= @stock.id %>/delete" method="post">
-  <input type="submit" value="delete">
+
+<button type='submit' class="button" style="vertical-align:middle"><span>Delete</span></button>
 </form>
 
 </div>

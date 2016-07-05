@@ -1,18 +1,21 @@
 <div class="content" align="center" id="white_text">
   <h2>Edit or Delete an Album</h2>
-  <br>
 
-  <hr>
-  <h3><%= @album.title %></h3>
+  <h2> 
+  <%= @album.artist.name  %> - 
+  <%= @album.title %></h2>
 
-  <a href="/albums/<%= @album.id %>/edit">Edit</a>
 
   <form action="/albums/<%= @album.id %>/edit" method="get">
-    <input type="submit" value="edit"></form>
+    <button type='submit' class="button" style="vertical-align:middle">
+    <span>Edit</span></button>
+  </form>
 
-    <form action="/albums/<%= @album.id %>/delete" method="post">
-      <input type="submit" value="delete"></form>
+  <form  action="/albums/<%= @album.id %>/delete" method="post">
+    <button type='submit' class="button" value="delete" style="vertical-align:middle">
+    <span>Delete</span></button>
+  </form>
 
-    </div>
+</div>    
 
 

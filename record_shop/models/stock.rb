@@ -26,7 +26,7 @@ class Stock
 
   def stock_level()
     if  model_stock > quantity
-      result = "Order Now!"
+      result = "Order More!"
     elsif model_stock < quantity
       result = "Plenty"
     elsif model_stock == quantity
@@ -36,15 +36,25 @@ class Stock
   end
 
   def sum()
-    binding.pry
     sql = "SELECT SUM (sale_price) FROM stocks"
     result = run_sql(sql)
-    return result
+    # .map?????
+    return result 
   end
+
+
+  # def sum()
+  #   binding.pry
+  #   sql = "SELECT sale_price FROM stocks"
+  #   value = run_sql(sql)
+  #   result = sum.map { |value| sum += value }
+  #   return result
+  # end
 
   def profit()
     sql = "SELECT SUM(sale_price) - SUM(cost_price) FROM stocks;"
     result = run_sql(sql)
+    # .map????  
     return result
   end
 
@@ -67,16 +77,14 @@ class Stock
     return album
   end
 
-
-  def self.all(query = "")
-    query = query.to_s
-    sql = "SELECT * FROM stocks"
-    sql = sql + " WHERE quantity format LIKE '%#{query}%'" unless query.empty?
-    stocks = run_sql( sql )
-    result = stocks.map { |stock| Stock.new( stock ) }
-    return result
-  end
-
+    def self.all(query = "")
+        query = query.to_s
+        sql = "SELECT * FROM stocks"
+          sql = sql + " WHERE artist_id = '%#{query}%'" unless query.empty?
+        product = run_sql( sql )
+        result = product.map { |stock| Stock.new( stock ) }
+        return result
+      end
   
   def self.find(id)
     sql = "SELECT * FROM stocks WHERE id=#{id}"

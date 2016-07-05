@@ -2,21 +2,22 @@
 
   <h2>Create Stock</h2>
 
-  <form action="/stock" method="post">
+  <form action="/stock" method="post" >
     
-   <select name="artist_id">
+   <select  class="input"name="artist_id" >
      <% @artists.each do |artist| %>
      <option value="<%= artist.id %>"><%= artist.name %></option>
      <%  end %>
    </select>
    <br>
 
-    <select name="album_id">
+    <select class="input" name="album_id">
       <% @albums.each do |album| %>
       <option value="<%= album.id %>"><%= album.title %></option>
       <%  end %>
     </select>
 <br>
+
 
     <input type="number" name="quantity" placeholder=" Quantity : "><br>
 

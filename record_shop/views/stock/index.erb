@@ -14,12 +14,13 @@
     <th>Quant</th>
     <th>Cost Price</th>
     <th>Sale Price</th>
+    <th>Mark-up</th>
     <th>MS</th>
     <th>Stock Level</th>
-    <th>Mark-up</th>
     <th>Update</th>
 
     <% @stock.each do |stock| %>
+
   </tr>
   <tr>
   
@@ -32,17 +33,22 @@
     <td><%= stock.quantity() %></td>
     <td><%= stock.cost_price() %></td>
     <td><%= stock.sale_price() %></td>
+    <td><%= stock.mark_up %></td>
     <td><%= stock.model_stock() %></td>
     <td><%= stock.stock_level() %></td>
-    <td><%= stock.mark_up %></td>
     <td><a href="/stock/<%= stock.id %>/edit">Edit</a></td>
-    
     <% end %>
     
   </tr>
 </table>
 
+<div>
 <% else %>
   <p> Sorry there are no matching artists</p>
 <% end %>
 </div>
+
+
+
+
+
