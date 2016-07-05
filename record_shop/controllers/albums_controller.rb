@@ -1,6 +1,10 @@
 #SEARCH
 
-
+get '/albums' do
+  query = params[:search]
+  @albums = Album.all(query)
+  erb ( :'albums/index' )
+end
 
 #NEW 
 #ALBUMS / NEW
