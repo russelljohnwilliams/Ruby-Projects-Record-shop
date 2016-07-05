@@ -13,37 +13,25 @@
       <th>Book In Stock</th>
 
       <% @albums.each do |album| %> 
-
     </tr>
+
     <tr>
       <%artist = album.artist() %>
+      
       <td><a href="/artists/<%= artist.id %>"><%= artist.name() %></a></td>
-
       <td><a href="/albums/<%= album.id %>"><%= album.title %></a></td>
       <td><%= album.format() %> </td>
       <td><%= album.cat_number() %> </td>
       <td><%= album.distributor() %> </td>
       <td><a href="/stock/new">stock</a></td>
-
-
       <% end %>
-
     </tr>
   </table>
 </div>
 
 <% else %>
-
 <p> Sorry there are no matching albums </p>
-
 <% end %>
-
-
-<form method="get">
-  Search by album name
-  <input name="search" value="" type="text" />
-  <input type="submit" value="search" />
-</form>
 
 
 
