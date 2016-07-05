@@ -24,9 +24,10 @@
       font-family: 'Amatic SC', Helvetica, Arial, sans-serif;
       font-size: 3rem;
       color: #FFF;
+    
     }
 
-    h/*eader{
+    /*header{
       position: fixed;
     }*/
 
@@ -167,14 +168,14 @@
     min-height: 52px;
     max-height: 54px;
     float: left;
-    width: 25%;
+    width: 15%;
   }
 
   .right {
     min-height: 52px;
     max-height: 54px;
     float: right;
-    width: 75%;
+    width: 85%;
   }
 
 /*==================

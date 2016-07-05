@@ -25,10 +25,12 @@ class Artist
     return albums
   end
 
-  def self.all()
+  def self.all(query = "")
+    query = query.to_s
     sql = "SELECT * FROM artists"
+    sql = sql + " WHERE name LIKE '%#{query}%'" unless query.empty?
     artists = run_sql( sql )
-    result = artists.map { |artist| Artist.new( artist ) }
+    result = artists.map { |a| Artist.new( a ) }
     return result
   end
 

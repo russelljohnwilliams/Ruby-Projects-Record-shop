@@ -62,6 +62,8 @@ class Stock
     return result
   end
 
+  
+
   def self.find(id)
     sql = "SELECT * FROM stocks WHERE id=#{id}"
     delete = run_sql(sql)

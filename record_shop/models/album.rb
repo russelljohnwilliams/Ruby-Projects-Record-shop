@@ -29,28 +29,28 @@ class Album
   end
 
   def self.all()
-   sql = "SELECT * FROM albums"
-   albums = run_sql( sql )
-   result = albums.map { |album| Album.new( album ) }
-   return result
- end
+    sql = "SELECT * FROM albums"
+    albums = run_sql( sql )
+    result = albums.map { |album| Album.new( album ) }
+    return result
+  end
 
- def self.find(id)
-  sql = "SELECT * FROM albums WHERE id=#{id}"
-  delete = run_sql(sql)
-  result = Album.new(delete.first)
-  return result 
-end
+  def self.find(id)
+    sql = "SELECT * FROM albums WHERE id=#{id}"
+    delete = run_sql(sql)
+    result = Album.new(delete.first)
+    return result 
+  end
 
-def self.update( options )
-  run_sql(
-    "UPDATE albums SET title='#{options['title']}', format='#{options['format']}', cat_number='#{options['cat_number']}', distributor='#{options['distributor']}' WHERE id=#{options['id']}"
-    ) 
-end
+  def self.update( options )
+    run_sql(
+      "UPDATE albums SET title='#{options['title']}', format='#{options['format']}', cat_number='#{options['cat_number']}', distributor='#{options['distributor']}' WHERE id=#{options['id']}"
+      ) 
+  end
 
-def self.delete( id )
-  run_sql( "DELETE FROM albums WHERE id=#{id}" )
-end
+  def self.delete( id )
+    run_sql( "DELETE FROM albums WHERE id=#{id}" )
+  end
 
 # def self.map_items(sql)
 #   albums = run(sql)
