@@ -11,9 +11,9 @@ end
 #ERB - albums/new
 
 get '/albums/new' do
+  @artists = Artist.all
   erb( :'albums/new' )
 end
-
 
 #INDEX
 #ALBUMS / INDEX

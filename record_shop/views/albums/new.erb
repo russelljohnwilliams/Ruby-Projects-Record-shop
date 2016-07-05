@@ -11,10 +11,22 @@
     <input type="text" name="cat_number" placeholder="Catalogue Number :"><br>
 
     <input type="text" name="distributor" placeholder="Distributor :"><br>
-
-    <input type="number" name="artist_id" placeholder="Artist id :"><br>
     
+
+    
+        <select name="artist_id">
+            
+            <% @artists.each do |artist| %>
+              <option value="<%= artist.id %>"><%= artist.name %></option>
+            <%  end %>
+        </select>
+
+   
+
+
     <button type='submit' class="button" style="vertical-align:middle"><span>Add Album</span></button>
     
   </form>
 </div>
+
+

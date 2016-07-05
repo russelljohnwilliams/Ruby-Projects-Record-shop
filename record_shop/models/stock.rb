@@ -53,7 +53,7 @@ class Stock
     artist = Artist.new( artists.first )
     return artist
   end
-
+  
   def album()
     sql = "SELECT * FROM albums WHERE id = #{@album_id}"
     albums = run_sql( sql )

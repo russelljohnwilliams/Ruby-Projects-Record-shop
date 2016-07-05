@@ -22,37 +22,25 @@
     <% @stock.each do |stock| %>
   </tr>
   <tr>
-    <% artist = stock.artist() %>
-    <% album = stock.album() %>
-    <% result = stock.stock_level() %>
-    <% mark_up = stock.mark_up() %>
-    <!-- <% total = stock.sum() %> -->
 
-    <td><%= artist.name() %></td>
-    <!-- <td><%= album.artist_id %></td> -->
-    <td><%= artist.genre() %></td>
-    <td><%= album.title() %></td>
-    <!-- <td><%= stock.album_id() %></td> -->
-    <td><%= album.format() %></td>
-    <td><%= album.cat_number() %></td>
-    <td><%= album.distributor() %></td>
+
+    <td><%= stock.artist.name() %></td>
+    <td><%= stock.artist.genre() %></td>
+    <td><%= stock.album.title() %></td>
+    <td><%= stock.album.format() %></td>
+    <td><%= stock.album.cat_number() %></td>
+    <td><%= stock.album.distributor() %></td>
     <td><%= stock.quantity() %></td>
     <td><%= stock.cost_price() %></td>
     <td><%= stock.sale_price() %></td>
     <td><%= stock.model_stock() %></td>
-    <td><%= result %></td>
-    <td><%= mark_up %></td>
+    <td><%= stock.mark_up %></td>
     <td><a href="/stock/<%= stock.id %>/edit">Edit</a></td>
-    <!-- <td><%= total  %></td> -->
     
     <% end %>
   </tr>
 </table>
 </div>
-
-
-
-
 
 
 

@@ -28,7 +28,7 @@ class Artist
   def self.all(query = "")
     query = query.to_s
     sql = "SELECT * FROM artists INNER JOIN albums ON artist_id = artists.id"
-    sql = sql + " WHERE title || name || genre LIKE '%#{query}%'" unless query.empty?
+    sql = sql + " WHERE title || name || genre || distributor || format LIKE '%#{query}%'" unless query.empty?
     artists = run_sql( sql )
     result = artists.map { |a| Artist.new( a ) }
     return result
@@ -50,11 +50,9 @@ class Artist
     run_sql(sql)
   end
 
-
   def self.delete( id )
     run_sql( "DELETE FROM artists WHERE id=#{id}" )
   end
-
 
   # def self.map_items(sql)
   #   artists = run(sql)
