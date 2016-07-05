@@ -1,13 +1,13 @@
 
 <div class="content" align="center">
 <h2>Stock</h2>
+
+
 <table id="t02" align="center">
   <tr>
     <th>Artist</th>
-    <!-- <th>Artist ID</th> -->
     <th>Genre</th>
     <th>Album</th>
-    <!-- <th>Album ID</th> -->
     <th>Format</th>
     <th>Cat No.</th>
     <th>Dist</th>
@@ -15,15 +15,14 @@
     <th>Cost Price</th>
     <th>Sale Price</th>
     <th>MS</th>
-    <th>Level</th>
+    <th>Stock Level</th>
     <th>Mark-up</th>
     <th>Update</th>
 
     <% @stock.each do |stock| %>
   </tr>
   <tr>
-
-
+  
     <td><%= stock.artist.name() %></td>
     <td><%= stock.artist.genre() %></td>
     <td><%= stock.album.title() %></td>
@@ -34,12 +33,19 @@
     <td><%= stock.cost_price() %></td>
     <td><%= stock.sale_price() %></td>
     <td><%= stock.model_stock() %></td>
+    <td><%= stock.stock_level() %></td>
     <td><%= stock.mark_up %></td>
     <td><a href="/stock/<%= stock.id %>/edit">Edit</a></td>
     
     <% end %>
+    
   </tr>
 </table>
+</div>
+
+<div>
+
+
 </div>
 
 

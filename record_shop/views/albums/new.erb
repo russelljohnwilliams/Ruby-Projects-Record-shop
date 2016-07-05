@@ -4,6 +4,12 @@
 
   <form action="/albums" method="post">
 
+    <select name="artist_id">
+      <% @artists.each do |artist| %>
+      <option value="<%= artist.id %>"><%= artist.name %></option>
+      <%  end %>
+    </select>
+
     <input type="text" name="title" placeholder="Title :"><br>
 
     <input type="text" name="format" placeholder=" Format :"><br>
@@ -12,18 +18,6 @@
 
     <input type="text" name="distributor" placeholder="Distributor :"><br>
     
-
-    
-        <select name="artist_id">
-            
-            <% @artists.each do |artist| %>
-              <option value="<%= artist.id %>"><%= artist.name %></option>
-            <%  end %>
-        </select>
-
-   
-
-
     <button type='submit' class="button" style="vertical-align:middle"><span>Add Album</span></button>
     
   </form>

@@ -1,9 +1,9 @@
 #SEARCH
 
-get '/artists' do
+get '/artists/search' do
   query = params[:search]
-  @artists = Artist.all(query)
-  erb ( :'artists/index' )
+  @artists = Artist.search(query)
+  erb ( :'artist/search' )
 end
 
 #NEW
@@ -14,14 +14,13 @@ end
 
 #INDEX
 
-#------------------------.all
 get '/artists' do
   @artist = Artist.all
   erb :'artists/index'
 end
 
 #CREATE
-#------------------------.save
+
 post '/artists' do
  @artist = Artist.new( params )
  @artist.save()
@@ -29,7 +28,6 @@ post '/artists' do
 end
 
 #SHOW
-#------------------------.find
 
 get '/artists/:id' do
   @artist = Artist.find( params[:id] )
@@ -37,7 +35,6 @@ get '/artists/:id' do
 end
 
 #EDIT
-#------------------------.find
 
 get '/artists/:id/edit' do
   @artist = Artist.find( params[:id] )
@@ -45,7 +42,6 @@ get '/artists/:id/edit' do
 end
 
 #UPDATE
-#------------------------.update
 
 put '/artists/:id' do
  @artist = Artist.update( params )
@@ -53,7 +49,6 @@ put '/artists/:id' do
 end
 
 #DELETE
-#------------------------ .delete
 
 post '/artists/:id/delete' do
   Artist.delete(params[:id])

@@ -26,21 +26,27 @@ class Stock
 
   def stock_level()
     if  model_stock > quantity
-      result = "ORDER MORE!"
+      result = "Order Now!"
     elsif model_stock < quantity
-      result = "Doing alright"
+      result = "Plenty"
     elsif model_stock == quantity
-      result = "Keep an eye on it!"
+      result = "Running Low"
     end
     return result 
   end
 
   def sum()
+    binding.pry
     sql = "SELECT SUM (sale_price) FROM stocks"
     result = run_sql(sql)
     return result
   end
 
+  def profit()
+    sql = "SELECT SUM(sale_price) - SUM(cost_price) FROM stocks;"
+    result = run_sql(sql)
+    return result
+  end
 
   def mark_up()
     result = sale_price - cost_price
@@ -106,5 +112,7 @@ end
 # "SELECT * FROM artists INNER JOIN albums ON artist_id = artists.id ORDER BY genre;"
 
 # "SELECT SUM(sale_price) - SUM(cost_price) FROM stocks;"
+
+
 
 #"SELECT (sale_price) - (cost_price) FROM stocks;"

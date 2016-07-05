@@ -4,9 +4,19 @@
 
   <form action="/stock" method="post">
     
-    <input type="number" name="artist_id" placeholder=" Artists Id : "><br>
-    
-    <input type="number" name="album_id" placeholder=" Album Id : "><br>
+   <select name="artist_id">
+     <% @artists.each do |artist| %>
+     <option value="<%= artist.id %>"><%= artist.name %></option>
+     <%  end %>
+   </select>
+   <br>
+
+    <select name="album_id">
+      <% @albums.each do |album| %>
+      <option value="<%= album.id %>"><%= album.title %></option>
+      <%  end %>
+    </select>
+<br>
 
     <input type="number" name="quantity" placeholder=" Quantity : "><br>
 

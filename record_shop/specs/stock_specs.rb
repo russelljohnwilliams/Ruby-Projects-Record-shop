@@ -11,8 +11,11 @@ class TestBooking < MiniTest::Test
       'model_stock' => '3'
     }
 
+
     @stock = Stock.new( options )
-  end
+  
+
+   end
 
   def test_quantity()
     assert_equal( 5, @stock.quantity() )
@@ -31,8 +34,9 @@ class TestBooking < MiniTest::Test
   end
   
   def test_stock_level
-    assert_equal("high", @stock.stock_level())
+    assert_equal("Plenty", @stock.stock_level())
   end
+
   
 
 end    

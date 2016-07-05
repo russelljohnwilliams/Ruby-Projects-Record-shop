@@ -1,19 +1,20 @@
 #NEW
 
 get '/stock/new' do
+  @albums = Album.all
+  @artists = Artist.all
   erb( :'stock/new' )
 end
 
 #INDEX
 
-#------------------------<<<<<<<<<<<____________________self.all
 get '/stock' do
   @stock = Stock.all
   erb :'stock/index'
 end
 
 #CREATE
-#------------------------<<<<<<<<<<<____________________.save
+
 post '/stock' do
  @stock = Stock.new( params )
  @stock.save()
@@ -21,7 +22,6 @@ post '/stock' do
 end
 
 #SHOW
-#------------------------<<<<<<<<<<<____________________self.find
 
 get '/stock/:id' do
   @stock = Stock.find( params[:id] )
@@ -29,7 +29,6 @@ get '/stock/:id' do
 end
 
 #EDIT
-#------------------------<<<<<<<<<<<____________________self.find
 
 get '/stock/:id/edit' do
   @stock = Stock.find( params[:id] )
@@ -37,7 +36,6 @@ get '/stock/:id/edit' do
 end
 
 #UPDATE
-#------------------------<<<<<<<<<<<____________________self.update
 
 put '/stock/:id' do
  @stock = Stock.update( params )
@@ -45,7 +43,6 @@ put '/stock/:id' do
 end
 
 #DELETE
-#------------------------<<<<<<<<<<<____________________self.delete
 
 post '/stock/:id/delete' do
   Stock.delete(params[:id])
