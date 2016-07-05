@@ -34,7 +34,6 @@ class Artist
     return result
   end
 
-
   def self.find(id)
     sql = "SELECT * FROM artists WHERE id=#{id}"
     delete = run_sql(sql)

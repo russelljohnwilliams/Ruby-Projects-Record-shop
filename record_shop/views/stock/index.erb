@@ -26,6 +26,8 @@
     <% album = stock.album() %>
     <% result = stock.stock_level() %>
     <% mark_up = stock.mark_up() %>
+    <!-- <% total = stock.sum() %> -->
+
     <td><%= artist.name() %></td>
     <!-- <td><%= album.artist_id %></td> -->
     <td><%= artist.genre() %></td>
@@ -41,6 +43,7 @@
     <td><%= result %></td>
     <td><%= mark_up %></td>
     <td><a href="/stock/<%= stock.id %>/edit">Edit</a></td>
+    <!-- <td><%= total  %></td> -->
     
     <% end %>
   </tr>

@@ -24,7 +24,6 @@ class Stock
     @id = result.first['id']
   end
 
-
   def stock_level()
     if  model_stock > quantity
       result = "ORDER MORE!"
@@ -35,6 +34,13 @@ class Stock
     end
     return result 
   end
+
+  def sum()
+    sql = "SELECT SUM (sale_price) FROM stocks"
+    result = run_sql(sql)
+    return result
+  end
+
 
   def mark_up()
     result = sale_price - cost_price
@@ -61,8 +67,6 @@ class Stock
     result = product.map { |stock| Stock.new( stock ) }
     return result
   end
-
-  
 
   def self.find(id)
     sql = "SELECT * FROM stocks WHERE id=#{id}"
