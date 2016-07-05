@@ -1,4 +1,4 @@
-
+<% if @stock.count > 0 %>
 <div class="content" align="center">
 <h2>Stock</h2>
 
@@ -41,14 +41,8 @@
     
   </tr>
 </table>
+
+<% else %>
+  <p> Sorry there are no matching artists</p>
+<% end %>
 </div>
-
-<div>
-
-
-</div>
-
-
-
-
-

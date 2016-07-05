@@ -28,14 +28,14 @@ class Album
     return artist
   end
 
-  def self.all(query = "")
-    query = query.to_s
-    sql = "SELECT * FROM albums INNER JOIN artists ON artist_id = artists.id"
-    sql = sql + " WHERE title || name || genre || distributor || format LIKE '%#{query}%'" unless query.empty?
-    albums = run_sql( sql )
-    result = albums.map { |album| Album.new( album ) }
-    return result
-  end
+ def self.all(query = "")
+     query = query.to_s
+     sql = "SELECT * FROM albums"
+     sql = sql + " WHERE title || format || cat_number || distributor LIKE '%#{query}%'" unless query.empty?
+     albums = run_sql( sql )
+     result = albums.map { |album| Album.new( album ) }
+     return result
+   end
 
   def self.find(id)
     sql = "SELECT * FROM albums WHERE id=#{id}"

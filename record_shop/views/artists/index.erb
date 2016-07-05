@@ -1,19 +1,29 @@
+<% if @artists.count > 0 %>
 
 <div class="content" align="center">
-  <h2>Artists</h2>
-  <table id="t01" align="center">
-    <tr>
-      <th>Artist</th>
-      <th>Genre</th>
-      <% @artist.each do |artist| %> 
+<h2>Artists</h2>
+<table id="t01" align="center">
+<tr>
+
+  <th>Artist</th>
+  <th>Genre</th>
+
+  <% @artists.each do |artist| %> 
+  
     </tr>
     <tr>
      <td> <a href="/artists/<%= artist.id %>"><%= artist.name %></a></td>
-     <td><%= artist.genre() %> </a></td>
-<% end %>
-     <div align="center">
+    <td><%= artist.genre() %> </a></td>
+  <% end %>
+  </tr>
+  </table>
+ </div>
 
-     </div>
+<div>
+<% else %>
+  <p> Sorry there are no matching artists</p>
+<% end %>
+</div>
 
 
 

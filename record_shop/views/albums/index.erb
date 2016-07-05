@@ -11,7 +11,9 @@
       <th>Catalogue Number</th>
       <th>Distributor</th>
       <th>Book In Stock</th>
+      
       <% @albums.each do |album| %>
+    
     </tr>
 
     <tr>
@@ -20,7 +22,7 @@
       <td><%= album.format() %> </td>
       <td><%= album.cat_number() %> </td>
       <td><%= album.distributor() %> </td>
-      <td><a href="/stock/new">stock</a></td>
+        <td><a href="/stock/new">stock</a></td>
       <% end %>
     </tr>
   </table>

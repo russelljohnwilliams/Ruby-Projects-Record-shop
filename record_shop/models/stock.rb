@@ -67,13 +67,17 @@ class Stock
     return album
   end
 
-  def self.all()
+
+  def self.all(query = "")
+    query = query.to_s
     sql = "SELECT * FROM stocks"
-    product = run_sql( sql )
-    result = product.map { |stock| Stock.new( stock ) }
+    sql = sql + " WHERE quantity format LIKE '%#{query}%'" unless query.empty?
+    stocks = run_sql( sql )
+    result = stocks.map { |stock| Stock.new( stock ) }
     return result
   end
 
+  
   def self.find(id)
     sql = "SELECT * FROM stocks WHERE id=#{id}"
     delete = run_sql(sql)
@@ -98,8 +102,6 @@ class Stock
     result = Stock.map_items(sql)
     return result.first
   end
-
-
 
 end
 

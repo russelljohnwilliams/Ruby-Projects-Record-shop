@@ -1,3 +1,12 @@
+#SEARCH
+
+get '/stock' do
+  query = params[:search]
+  @stock = Stock.all(query)
+  erb ( :'stock/index' )
+end
+
+
 #NEW
 
 get '/stock/new' do

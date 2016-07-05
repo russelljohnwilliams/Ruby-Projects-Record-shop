@@ -27,9 +27,10 @@
       
     }
 
-    /*header{
+    header{
       position: fixed;
-      }*/
+      min-width: 98%;
+      }
 
 /*==================
     ID & CLASS
@@ -58,6 +59,8 @@
       background: linear-gradient(to bottom, rgba(000, 000, 000,1), rgba(0,0,0,0)); 
     }
 
+  
+
     #white_text {
       font-family: Helvetica, Arial, sans-serif;
       font-size: 0.8rem;
@@ -74,7 +77,7 @@
       width: 15%;
       height: 37px;
       padding: 12px 20px;
-      margin: 8px 0;
+      margin: 8px 7px;
       border-radius: 2px;
       box-sizing: border-box;
       border: none;
@@ -206,11 +209,11 @@
     }
 
     table tr:nth-child(even) {
-      background: linear-gradient(to bottom, #f0f5f5, #fff);
+      background-color: #f0f5f5;
       font-size: 12px;
     }
     table tr:nth-child(odd) {
-     background: linear-gradient(to bottom, #d3eef8, #fff);
+     background: linear-gradient(to bottom, #d3eefb, #fff);
      font-size: 12px;
    }
    table th {
