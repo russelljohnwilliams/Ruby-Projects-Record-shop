@@ -38,18 +38,21 @@ class Stock
   def self.sum_of_stock
     sql = "SELECT SUM (sale_price) FROM stocks"
     result = run_sql(sql)
-  end
-
-  def self.sum_of_stocks()
-    sql = "SELECT sale_price FROM stocks"
-    value = run_sql(sql)
-    result = sum.map { |value| sum += value }
     return result
   end
+
+  # def sum()
+  #   binding.pry
+  #   sql = "SELECT sale_price FROM stocks"
+  #   value = run_sql(sql)
+  #   result = sum.map { |value| sum += value }
+  #   return result
+  # end
 
   def self.profit()
     sql = "SELECT SUM(sale_price) - SUM(cost_price) FROM stocks;"
     result = run_sql(sql)
+    return result
   end
 
   def mark_up()

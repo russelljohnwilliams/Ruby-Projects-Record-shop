@@ -14,7 +14,7 @@ get '/stock' do
   query = params[:search]
   @stock = Stock.all(query)
   @sum_of_stock = Stock.sum_of_stock
-  @profiit = Stock.profit
+  @profit = Stock.profit
   erb :'stock/index'
 end
 
