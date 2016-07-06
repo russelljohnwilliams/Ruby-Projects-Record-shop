@@ -12,7 +12,7 @@
     }
 
     body{
-
+      background: linear-gradient(to bottom, rgba(000, 000, 000,1), rgba(0,0,0,0.0));
       font-family: Helvetica, Arial, sans-serif;
       font-size: 1rem;
       color: #000;
@@ -24,12 +24,20 @@
       font-family: 'Amatic SC', Helvetica, Arial, sans-serif;
       font-size: 3rem;
       color: #FFF;
-      
     }
 
     header{
       min-height: 100px;
       min-width: 98%;
+    }
+
+    footer {
+      font-family: 'Amatic SC', Helvetica, Arial, sans-serif;
+      font-size: 1rem;
+      color: #000;
+      text-align: right;
+      padding: 150px 50px 30px 30px;
+      
     }
 
 /*==================
@@ -54,12 +62,10 @@
       color: #FFF;
     }
 
-    #grad1 {
-      height: 800px;
-      background: linear-gradient(to bottom, rgba(000, 000, 000,1), rgba(0,0,0,0)); 
+    #grad1 
+    {
+      height: 500px;
     }
-
-
 
     #white_text {
       font-family: Helvetica, Arial, sans-serif;

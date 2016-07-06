@@ -1,4 +1,5 @@
 #SEARCH
+#INDEX
 
 get '/artists' do
   query = params[:search]
@@ -10,13 +11,6 @@ end
 
 get '/artists/new' do
   erb( :'artists/new' )
-end
-
-#INDEX
-
-get '/artists' do
-  @artist = Artist.all
-  erb :'artists/index'
 end
 
 #CREATE

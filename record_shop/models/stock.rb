@@ -71,7 +71,7 @@ class Stock
     artist = Artist.new( artists.first )
     return artist
   end
-  
+
   def album()
     sql = "SELECT * FROM albums WHERE id = #{@album_id}"
     albums = run_sql( sql )
@@ -82,12 +82,12 @@ class Stock
   def self.all(query = "")
     query = query.to_s
     sql = "SELECT * FROM stocks"
-    sql = sql + " WHERE artist_id = '%#{query}%'" unless query.empty?
+    sql = sql + " WHERE quantity = '%#{query}%'" unless query.empty?
     product = run_sql( sql )
     result = product.map { |stock| Stock.new( stock ) }
     return result
   end
-  
+
   def self.find(id)
     sql = "SELECT * FROM stocks WHERE id=#{id}"
     delete = run_sql(sql)
@@ -116,15 +116,3 @@ class Stock
 end
 
 
-
-# psql 
-
-# "SELECT SUM(sale_price) FROM stocks;"
-
-# "SELECT * FROM artists INNER JOIN albums ON artist_id = artists.id ORDER BY genre;"
-
-# "SELECT SUM(sale_price) - SUM(cost_price) FROM stocks;"
-
-
-
-#"SELECT (sale_price) - (cost_price) FROM stocks;"

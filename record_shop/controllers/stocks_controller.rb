@@ -1,13 +1,4 @@
 #SEARCH
-
-#NEW
-
-get '/stock/new' do
-  @albums = Album.all
-  @artists = Artist.all
-  erb( :'stock/new' )
-end
-
 #INDEX
 
 get '/stock' do
@@ -17,7 +8,15 @@ get '/stock' do
   @profit = Stock.profit
   @quantity = Stock.quantity
   # binding.pry
-  erb :'stock/index'
+  erb (:'stock/index')
+end
+
+# NEW
+
+get '/stock/new' do
+  @albums = Album.all
+  @artists = Artist.all
+  erb( :'stock/new' )
 end
 
 #CREATE

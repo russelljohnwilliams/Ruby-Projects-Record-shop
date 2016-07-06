@@ -1,4 +1,5 @@
 #SEARCH
+#INDEX
 
 get '/albums' do
   query = params[:search]
@@ -7,24 +8,13 @@ get '/albums' do
 end
 
 #NEW 
-#ALBUMS / NEW
 
 get '/albums/new' do
   @artists = Artist.all
   erb( :'albums/new' )
 end
 
-#INDEX
-#ALBUMS / INDEX
-
-get '/albums' do
-  @album = Album.all
-  @artist = Artist.all
-  erb :'albums/index'
-end
-
 #CREATE 
-#/ALBUMS / INDEX
 
 post '/albums' do
  @album = Album.new( params )
@@ -33,7 +23,6 @@ post '/albums' do
 end
 
 #SHOW
-#/ALBUMS / :ID
 
 get '/albums/:id' do
   @album = Album.find( params[:id] )
@@ -41,7 +30,6 @@ get '/albums/:id' do
 end
 
 #EDIT
-#/ALBUMS / :ID / EDIT 
 
 get '/albums/:id/edit' do
   @album = Album.find( params[:id] )
@@ -50,7 +38,6 @@ get '/albums/:id/edit' do
 end
 
 #UPDATE
-#/ ALBUMS / INDEX
 
 put '/albums/:id' do
  @album = Album.update( params )
@@ -58,7 +45,6 @@ put '/albums/:id' do
 end
 
 #DELETE
-#/ ALBUMS / INDEX
 
 post '/albums/:id/delete' do
   Album.delete(params[:id])

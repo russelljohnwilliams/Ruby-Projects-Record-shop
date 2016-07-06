@@ -41,20 +41,25 @@
     
   </tr>
 </table>
+<h2>Vital Statistics</h2>
 <div>
-<h2>
-Total Profit = <%= @profit  %><br>
-Total Stock Value = <%= @sum_of_stock %><br>
-Quantity of stock = <%= @quantity %>
-</h2>
+<table id="t01" align="center">
+<tr>
+  <th> Total Profit Available </th>
+  <th> Total Stock Value </th>
+  <th> Quantity of Stock </th>
+  </tr>
+  <tr>
+      <td>£ <%= @profit  %></td>
+      <td>£ <%= @sum_of_stock %></td>
+      <td> <%= @quantity %></td>
+  </tr>
+</table>
 </div>
-
-
-
 
 <div>
 <% else %>
-  <p> Sorry there are no matching artists</p>
+ <div align="center"><h2>Sorry there is no matching stock </h2></div>
 <% end %>
 </div>
 
