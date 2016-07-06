@@ -36,11 +36,20 @@
     <td><%= stock.mark_up %></td>
     <td><%= stock.model_stock() %></td>
     <td><%= stock.stock_level() %></td>
-    <td><a href="/stock/<%= stock.id %>/edit">Edit</a></td>
+    <td><a href="/stock/<%= stock.id %>/edit">Edit</a>
     <% end %>
     
   </tr>
 </table>
+<div>
+<h2>
+<%= @profit %><br>
+<%= @sum_of_stock %>
+</h2>
+</div>
+
+
+
 
 <div>
 <% else %>

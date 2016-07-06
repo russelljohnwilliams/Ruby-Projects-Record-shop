@@ -1,11 +1,5 @@
 #SEARCH
 
-get '/stock' do
-  query = params[:search]
-  @stock = Stock.all(query)
-  erb ( :'stock/index' )
-end
-
 #NEW
 
 get '/stock/new' do
@@ -17,7 +11,10 @@ end
 #INDEX
 
 get '/stock' do
-  @stock = Stock.all
+  query = params[:search]
+  @stock = Stock.all(query)
+  @sum_of_stock = Stock.sum_of_stock
+  @profiit = Stock.profit
   erb :'stock/index'
 end
 
@@ -33,6 +30,7 @@ end
 
 get '/stock/:id' do
   @stock = Stock.find( params[:id] )
+  @stock.greeting
   erb( :'stock/show' )
 end
 
