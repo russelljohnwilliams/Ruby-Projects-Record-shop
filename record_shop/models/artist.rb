@@ -31,7 +31,7 @@ class Artist
    sql = "SELECT * FROM artists"
    sql = sql + " WHERE genre || name LIKE '%#{query}%'" unless query.empty?
    artists = run_sql( sql )
-   result = artists.map { |a| Artist.new( a ) }
+   result = artists.map { |artist| Artist.new( artist ) }
    return result
  end
 

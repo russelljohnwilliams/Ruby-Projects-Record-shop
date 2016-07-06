@@ -79,12 +79,13 @@ class Stock
     return album
   end
 
+
   def self.all(query = "")
     query = query.to_s
-    sql = "SELECT * FROM stocks"
-    sql = sql + " WHERE quantity = '%#{query}%'" unless query.empty?
-    product = run_sql( sql )
-    result = product.map { |stock| Stock.new( stock ) }
+    sql = "SELECT * FROM stocks INNER JOIN artists ON artist_id = artists.id INNER JOIN albums ON album_id = albums.id"
+    sql = sql + " WHERE name || title || genre || distributor || format || cat_number LIKE '%#{query}%'" unless query.empty?
+    artists = run_sql( sql )
+    result = artists.map { |artist| Stock.new( artist ) }
     return result
   end
 
