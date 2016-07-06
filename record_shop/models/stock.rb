@@ -36,22 +36,27 @@ class Stock
   end
 
   def self.sum_of_stock
-    sql = "SELECT SUM (sale_price) FROM stocks"
-    result = run_sql(sql)
-    return result
+    stocks = self.all()
+    result = stocks.inject(0) { |sum, stock| sum + stock.sale_price }
+    return result.round(2)
   end
 
-  # def sum()
-  #   binding.pry
-  #   sql = "SELECT sale_price FROM stocks"
-  #   value = run_sql(sql)
-  #   result = sum.map { |value| sum += value }
-  #   return result
-  # end
+  def self.sum_of_cost_price
+    total = self.all()
+    result = total.inject(0) { |sum, stock| sum + stock.cost_price }
+    return result.round(2)
+  end
 
-  def self.profit()
-    sql = "SELECT SUM(sale_price) - SUM(cost_price) FROM stocks;"
-    result = run_sql(sql)
+  def self.profit
+    stocks = self.sum_of_stock
+    cost = self.sum_of_cost_price
+    result = stocks - cost
+    return result.round(2)
+  end
+
+  def self.quantity
+    quantity = self.all()
+    result = quantity.inject(0) { |sum, stock| sum + stock.quantity }
     return result
   end
 
@@ -75,13 +80,13 @@ class Stock
   end
 
   def self.all(query = "")
-      query = query.to_s
-      sql = "SELECT * FROM stocks"
-        sql = sql + " WHERE artist_id = '%#{query}%'" unless query.empty?
-      product = run_sql( sql )
-      result = product.map { |stock| Stock.new( stock ) }
-      return result
-    end
+    query = query.to_s
+    sql = "SELECT * FROM stocks"
+    sql = sql + " WHERE artist_id = '%#{query}%'" unless query.empty?
+    product = run_sql( sql )
+    result = product.map { |stock| Stock.new( stock ) }
+    return result
+  end
   
   def self.find(id)
     sql = "SELECT * FROM stocks WHERE id=#{id}"

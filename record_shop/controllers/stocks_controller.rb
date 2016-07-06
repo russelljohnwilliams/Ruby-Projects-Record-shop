@@ -15,6 +15,8 @@ get '/stock' do
   @stock = Stock.all(query)
   @sum_of_stock = Stock.sum_of_stock
   @profit = Stock.profit
+  @quantity = Stock.quantity
+  # binding.pry
   erb :'stock/index'
 end
 
