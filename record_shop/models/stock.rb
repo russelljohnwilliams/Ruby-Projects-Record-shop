@@ -24,6 +24,56 @@ class Stock
     @id = result.first['id']
   end
 
+  def artist()
+    sql = "SELECT * FROM artists WHERE id = #{@artist_id}"
+    artists = run_sql( sql )
+    artist = Artist.new( artists.first )
+    return artist
+  end
+
+  def album()
+    sql = "SELECT * FROM albums WHERE id = #{@album_id}"
+    albums = run_sql( sql )
+    album = Album.new( albums.first )
+    return album
+  end
+
+  def self.all(query = "")
+    query = query.to_s
+    sql = "SELECT * FROM stocks INNER JOIN artists ON artist_id = artists.id INNER JOIN albums ON album_id = albums.id"
+    sql = sql + " WHERE name || title || genre || distributor || format || cat_number LIKE '%#{query}%'" unless query.empty?
+    artists = run_sql( sql )
+    result = artists.map { |artist| Stock.new( artist ) }
+    return result
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM stocks WHERE id=#{id}"
+    delete = run_sql(sql)
+    result = Stock.new(delete.first)
+    return result 
+  end
+
+  def self.update( options )
+    sql = (  
+      "UPDATE stocks SET quantity='#{options['quantity']}', cost_price='#{options['cost_price']}', sale_price='#{options['sale_price']}', model_stock='#{options['model_stock']}' WHERE id=#{options['id']}"
+      ) 
+    run_sql(sql)
+  end
+
+  def self.map_items(sql)
+    stock = run(sql)
+    result = stock.map { |product| Stock.new( product ) }
+    return result
+  end
+
+  def self.map_item(sql)
+    result = Stock.map_items(sql)
+    return result.first
+  end
+
+  #-------------- new model perhaps? -------------
+
   def stock_level()
     if  model_stock > quantity
       result = "Order More!"
@@ -63,55 +113,6 @@ class Stock
   def mark_up()
     result = sale_price - cost_price
     return result
-  end
-
-  def artist()
-    sql = "SELECT * FROM artists WHERE id = #{@artist_id}"
-    artists = run_sql( sql )
-    artist = Artist.new( artists.first )
-    return artist
-  end
-
-  def album()
-    sql = "SELECT * FROM albums WHERE id = #{@album_id}"
-    albums = run_sql( sql )
-    album = Album.new( albums.first )
-    return album
-  end
-
-
-  def self.all(query = "")
-    query = query.to_s
-    sql = "SELECT * FROM stocks INNER JOIN artists ON artist_id = artists.id INNER JOIN albums ON album_id = albums.id"
-    sql = sql + " WHERE name || title || genre || distributor || format || cat_number LIKE '%#{query}%'" unless query.empty?
-    artists = run_sql( sql )
-    result = artists.map { |artist| Stock.new( artist ) }
-    return result
-  end
-
-  def self.find(id)
-    sql = "SELECT * FROM stocks WHERE id=#{id}"
-    delete = run_sql(sql)
-    result = Stock.new(delete.first)
-    return result 
-  end
-
-  def self.update( options )
-    sql = (  
-      "UPDATE stocks SET quantity='#{options['quantity']}', cost_price='#{options['cost_price']}', sale_price='#{options['sale_price']}', model_stock='#{options['model_stock']}' WHERE id=#{options['id']}"
-      ) 
-    run_sql(sql)
-  end
-
-  def self.map_items(sql)
-    stock = run(sql)
-    result = stock.map { |product| Stock.new( product ) }
-    return result
-  end
-
-  def self.map_item(sql)
-    result = Stock.map_items(sql)
-    return result.first
   end
 
 end
