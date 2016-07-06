@@ -112,7 +112,7 @@ class Stock
 
   def mark_up()
     result = sale_price - cost_price
-    return result
+    return result.round(2)
   end
 
 end
